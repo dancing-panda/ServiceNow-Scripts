@@ -1,0 +1,19 @@
+```
+var UIScriptTest = Class.create();
+UIScriptTest.prototype = {
+    //This funtion will be executed always when we create the object of the UIScriptTest class    initialize : function(){
+    },
+    demoCallFromClientScript : function(TableName){
+        var count = 0;
+        var grTable = new GlideRecord(TableName);
+        grTable.addQuery('sys_created_by',g_user.userName);
+        grTable.query();
+        while(grTable.next()){
+            count++;
+        }
+        g_form.addInfoMessage("The number of records created by you for "+TableName+ " is "+count);
+    },
+};
+```
+
+Call the above UI Script from the onLoad Client Script just as you call the Script Include.
