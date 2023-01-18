@@ -1,0 +1,22 @@
+```
+function getAllCategoryValues(){
+var choices = GlideChoiceList.getChoiceList("incident", "category");
+ var choiceValue = [];
+        for (var i = 0; i < choices.getSize(); i++) {
+            choiceValue.push(choices.getChoice(i).getValue());
+        }
+        return choiceValue;
+}
+var categoryStr = getAllCategoryValues();
+var cate = "Systems Support";
+var result = false;
+for(var x in categoryStr ){
+    gs.info(categoryStr[x]);
+    if(cate ==categoryStr[x] ){
+        result = true;
+    }
+}
+if(result){
+    gs.info("match")
+}
+```
